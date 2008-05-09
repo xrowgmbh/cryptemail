@@ -50,17 +50,17 @@ class ezxcryptemail
            $operatorValue );
     }
 
-    function processMatches2($matches)
+    static function processMatches2($matches)
     {
         return ezxcryptemail::crypt_mailto( $matches[1], $matches[2] );
     }
 
-    function processMatches($matches)
+    static function processMatches($matches)
     {
         return ezxcryptemail::crypt_mailto( $matches[0], $matches[0] );
     }
 
-    function regexEmail() {
+    static function regexEmail() {
         // RegEx begin
         $nonascii      = "\x80-\xff"; # Non-ASCII-Chars are not allowed
 
@@ -85,7 +85,7 @@ class ezxcryptemail
         return $regex;
     }
 
-    function crypt_mailto( $MC_address, $MC_text, $MC_icon = false, $MC_noscript = false ) {
+    static function crypt_mailto( $MC_address, $MC_text, $MC_icon = false, $MC_noscript = false ) {
 
                     // e-mail address:
                     // link text:
