@@ -136,85 +136,14 @@ class ezxcryptemail
                                                      $atText ),
                                               $idontlikespam );
                     }
-
+                    
+                    $crypt = '';
+                    $uid = uniqid( "cryptemail_" );
                     // build JS code
-                    $crypt = '<script type="text/javascript" ><!--//--><![CDATA[//><!-- '."\n";
-                    $crypt .= "showmail('".$nospamplease."', '".str_replace("</","<\\/",$idontlikespam)."', '" . $nothanks. "', '" . $no . "', '". $way . "' )"."\n";
+                    $crypt .= '<a id="'.$uid.'" href="'.$nospamplease.'">'.$idontlikespam.'</a><script type="text/javascript" ><!--//--><![CDATA[//><!-- '."\n";
+                    $crypt .= "showmail( '".$uid."' )"."\n";
                     $crypt .= '//--><!]]></script>';
 
-/* no script part to be done later
-                    // done with JS code for this match
-                    // next: build <noscript> area
-                    if((strtolower($MC_noscript) != 'paranoid') && ($MC_noscript != 'p')) { // off;link;/contact.htm
-                        // prepare @-image
-                        // only do this once!
-                        if(!isset($at_subst)) {
-                            $at_subst = $this->_makeImageTag($this->_img_at,"&#64;");
-                        }
-
-                        // prepare mailto or custom image
-                        if($MC_icon != '') {
-                            $MC_icon = '<img src="'.$MC_icon.'" width="'.$MC_icon_w.'" height="'.$MC_icon_h.'" border="0" alt="" />';
-                        }
-                        // prepare e-mail address
-                        $parts = explode('@', $MC_address);
-                        $chars[0] = '';
-                        for($i = 0; $i < strlen($parts[0]); $i++) {
-                            $chars[0] .= "&#".ord(substr($parts[0], $i, $i + 1)).";";
-                        }
-                        $chars[1] = '';
-                        for($i=0; $i<strlen($parts[1]); $i++) {
-                            $chars[1] .= "&#".ord(substr($parts[1], $i, $i + 1)).";";
-                        }
-                        $email = $chars[0].$at_subst.$chars[1];
-
-                        // cases to consider...
-
-                        // no link text, no icon, no page link
-                        if($MC_text == '' AND $MC_icon == '' AND $MC_noscript == '') {
-                            $noscript = $email;
-                        }
-                        // page link; no link text, no icon
-                        elseif($MC_text == '' AND $MC_icon == '' AND $MC_noscript != '') {
-                            $noscript = '<a href="'.$MC_noscript.'">'.$email.'</a>';
-                        }
-                        // link text; no icon, no page link
-                        elseif($MC_text != '' AND $MC_icon == '' AND $MC_noscript == '') {
-                            $noscript = $MC_text.' ('.$email.')';
-                        }
-                        // link text, page link; no icon
-                        elseif($MC_text != '' AND $MC_icon == '' AND $MC_noscript != '') {
-                            $noscript = '<a href="'.$MC_noscript.'">'.$MC_text.'</a>';
-                        }
-                        // icon; no link text, no page link
-                        elseif($MC_text == '' AND $MC_icon != '' AND $MC_noscript == '') {
-                            $noscript = $email.' '.$MC_icon;
-                        }
-                        // icon, page link; no link text
-                        elseif($MC_text == '' AND $MC_icon != '' AND $MC_noscript != '') {
-                            $noscript = '<a href="'.$MC_noscript.'">'.$MC_icon.'</a>';
-                        }
-                        // icon, link text; no page link
-                        elseif($MC_text != '' AND $MC_icon != '' AND $MC_noscript == '') {
-                            $noscript = $MC_text.' '.$MC_icon.' ('.$email.')';
-                        }
-                        // link text,  icon, page link
-                        else {
-                            $noscript = '<a href="'.$MC_noscript.'">'.$MC_text.'</a> '.$MC_icon;
-                        }
-
-                        $crypt .= '<noscript>'.$noscript.'</noscript>';
-
-                        // clean up vars that are valid for this match only
-                        unset(
-                            $size,
-                            $chars,
-                            $MC_text,
-                            $MC_icon,
-                            $MC_noscript,
-                            $noscript);
-                    } // build <noscript> area
-*/
         return $crypt;
 
     }
