@@ -21,7 +21,7 @@ function showmail( id)
 		str_out = unescape(str_out);
 	}
 	nospamplease = str_out;
-
+       nospamplease = nospamplease.replace( /%0/g, "" );
 	element.setAttribute( 'href', 'mailto:' + nospamplease );
 	element.setAttribute( 'title', nospamplease );
 }
