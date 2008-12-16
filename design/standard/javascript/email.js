@@ -6,6 +6,7 @@ function showmail( id)
 	var num_out = '';
 	var num_in;
 	var hex = '0123456789abcdef'
+	nospamplease=nospamplease.substr(nospamplease.lastIndexOf("/")+1);
 	num_out = nospamplease;  
 	for(i = 0; i < num_out.length; i += 2)
 	{
@@ -21,7 +22,6 @@ function showmail( id)
 		str_out = unescape(str_out);
 	}
 	nospamplease = str_out;
-       nospamplease = nospamplease.replace( /%0/g, "" );
 	element.setAttribute( 'href', 'mailto:' + nospamplease );
 	element.setAttribute( 'title', nospamplease );
 }
