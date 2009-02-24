@@ -1,6 +1,10 @@
 function showmail( id)
 {
 	var element = document.getElementById(id);
+	if( element == null )
+	{
+		return false;
+	}
 	var nospamplease = element.getAttribute( 'href' );
 	var str_out = ''; 
 	var num_out = '';
