@@ -36,18 +36,18 @@ class ezxcryptemail
     */
     function modify( &$tpl, &$operatorName, &$operatorParameters, &$rootNamespace, &$currentNamespace, &$operatorValue, &$namedParameters )
     {
-        $regex = ezxcryptemail::regexEmail() ;
+        $regex = ezxcryptemail::regexEmail();
 
         $regexlink = "/<a.*\s*href=[\\\"\\']mailto:($regex)[\\\"\\']\s*.*>(.*)<\/a>/U";
+
         $operatorValue = preg_replace_callback(
            $regexlink,
            array('ezxcryptemail', 'processMatches2'),
            $operatorValue );
 
-        $operatorValue = preg_replace_callback(
-           "/". $regex ."/",
-           array('ezxcryptemail', 'processMatches'),
-           $operatorValue );
+        //$operatorValue = preg_replace_callback( "/". $regex ."/", array('ezxcryptemail', 'processMatches'), $operatorValue );
+
+        $operatorValue = preg_replace( '/mailtonospamfilter/', 'mailto', $operatorValue );
     }
 
     static function processMatches2($matches)
