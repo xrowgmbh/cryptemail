@@ -50,3 +50,22 @@ showmail('7583887891874197918896237778', 'bjoern<span class="spamfilter">SPAMFIL
 //--><!]]></script> ...
 </code>
 
+
+
+If you would like to have email address without spam filter:
+
+add in ezoe_attributes.ini.append.php something like that (important for us: LinkType[mailtonospamfilter:]=Mail (no spam filter))
+[Attribute_href]
+LinkType[]
+LinkType[eznode://]=eznode
+LinkType[ezobject://]=ezobject
+LinkType[ftp://]=Ftp
+LinkType[file://://]=File
+LinkType[http://]=Http
+LinkType[https://]=Https
+LinkType[mailto:]=Mail
+LinkType[mailtonospamfilter:]=Mail (no spam filter)
+LinkType[#]=Anchor
+LinkType[0]=Other
+
+In eZ OE choose for a link 'Mail (no spam filter)' and enter your email...
