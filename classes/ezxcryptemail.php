@@ -140,7 +140,7 @@ class ezxcryptemail
                     $crypt = '';
                     $uid = uniqid( "cryptemail_" );
                     // build JS code
-                    $crypt .= '<a id="'.$uid.'" href="'.$nospamplease.'">'.$idontlikespam.'</a><script type="text/javascript" ><!--//--><![CDATA[//><!-- '."\n";
+                    $crypt .= '<a id="'.$uid.'" href="'.$nospamplease.'" rel="nofollow">'.$idontlikespam.'</a><script type="text/javascript" ><!--//--><![CDATA[//><!-- '."\n";
                     $crypt .= "showmail( '".$uid."' )"."\n";
                     $crypt .= '//--><!]]></script>';
 
