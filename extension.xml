@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<software>
+    <metadata>
+        <name>eZ Publish Crypt Email Legacy Extension</name>
+        <version>1.0.2</version>
+        <copyright>Copyright (C) 2005-2017 xrow GmbH</copyright>
+        <license>GNU General Public License v2.0</license>
+        <info_url>http://projects.ez.no/cryptemail</info_url>
+    </metadata>
+</software>
