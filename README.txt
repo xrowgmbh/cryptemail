@@ -19,7 +19,6 @@
 # Depends:		Javascript engine in browser
 # OS:			ALL
 # Version:		> eZ 3.5		
-# Developed:	Björn Dieding  ( bjoern@xrow.de )
 # Short-Description: spam protection spamfilter
 # Description:       A better SPAM protection with encryted mailto: part.
 # Resources:	http://pubsvn.ez.no/community/trunk/extension/cryptemail/
